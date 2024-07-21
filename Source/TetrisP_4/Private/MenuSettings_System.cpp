@@ -60,6 +60,7 @@ void UMenuSettings_System::ChangeColorPreset()
 	{
 		MenuPreset.CurrentColorPreset = 0;
 	}
+	GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Emerald, "CurrentColorPreset: " + FString::FromInt(MenuPreset.CurrentColorPreset));
 	
 	//Setting Dynamic
 	ChangeMaterialColor("Blocks:Empty", MenuPreset.ColorPresets[MenuPreset.CurrentColorPreset][0]);
@@ -75,15 +76,13 @@ void UMenuSettings_System::ChangeColorPreset()
 	//Setting Static Boxes 2
 	for(int i = 4; i < 10; ++i)
 	ChangeStaticMaterialColor(i, MenuPreset.ColorPresets[MenuPreset.CurrentColorPreset][6]);
-
-
-
 }
 
 void UMenuSettings_System::AddColorPreset(TArray<FLinearColor> tal)
 {
 	if (tal.Num() == COLOR_PRESET_OBJECTS_NUM)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Emerald, "Added Color Preset");
 		MenuPreset.ColorPresets.Add(tal);
 		UE_LOG(Log_MenuSettings, Display, TEXT("Added Color Preset "));
 

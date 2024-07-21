@@ -33,10 +33,13 @@ class TETRISP_4_API UTetrisTimeManager : public UActorComponent
 
 	void FigureStop_CheckForSpeedUp();
 
+	UPROPERTY()
 	FTimerHandle FigureFall_Base;
 
+	UPROPERTY()
 	FTimerHandle FigureFall_Extra;
 
+	UPROPERTY()
 	ATetris_Core *TetrisCore;
 
 	// Atributes

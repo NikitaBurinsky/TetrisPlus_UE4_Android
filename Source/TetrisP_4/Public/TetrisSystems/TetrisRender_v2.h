@@ -65,7 +65,11 @@ private:
 	void StartUpRenderMaterials();
 	void ChangeBlocksColor(FLinearColor& NewColor);
 	void ChangeEmptyBlocksColor(FLinearColor& NewColor);
+	UPROPERTY()
 	UMaterialInstanceDynamic* EmptyBlockMaterial;
+
+	
+	UPROPERTY()
 	UMaterialInstanceDynamic* FilledBlockMaterial;
 	
 	UPROPERTY(EditAnywhere, Category = "Field : Blocks" )
@@ -78,10 +82,12 @@ private:
 	//ATRIBUTES------------------------------------------------
 	//
 private:
+	UPROPERTY()
 	ATetris_Core* TetrisCore;
 
 	TArray<TArray<AStaticMeshActor*>> RenderField; // [Rows][Collumns]
 
+	UPROPERTY()
 	FVector2D CurrentCoords[4];
 
 	//FIELD PRESETS

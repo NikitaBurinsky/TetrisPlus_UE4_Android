@@ -69,6 +69,11 @@ void UTetrisRender_v2::SetFieldVisibility(bool IsVisibleField)
 
 void UTetrisRender_v2::CreateNewRenderedFigure(FVector2D* Coords)
 {
+	if (!Coords)
+	{
+		return;
+	}
+
 	UE_LOG(Tetris_Render_2_Log, Display, TEXT("CreateNewRenderfigure : Start"));
 	for (int i = 0; i < 4; ++i)
 	{
@@ -84,6 +89,8 @@ void UTetrisRender_v2::CreateNewRenderedFigure(FVector2D* Coords)
 		}
 		UE_LOG(Tetris_Render_2_Log, Display, TEXT("CreateNewRenderfigure : Success"));
 }
+
+
 
 void UTetrisRender_v2::ChangeFallingBlocksCoordinates(FVector2D* NewCoordinates)
 {
@@ -150,7 +157,7 @@ inline void UTetrisRender_v2::SetBlockInUse(int RowInd, int ColInd, bool IsUsed)
 		if (IsUsed)
 		{
 				UStaticMeshComponent* TempSMC = RenderField[RowInd][ColInd]->GetStaticMeshComponent();
-				TempSMC->GetMaterial(0);
+
 				TempSMC->SetMaterial(0, FilledBlockMaterial);
 		}
 		else

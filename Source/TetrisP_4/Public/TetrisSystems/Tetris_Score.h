@@ -56,7 +56,7 @@ class TETRISP_4_API UTetris_Score : public UActorComponent
 
   private:
 	// Current Score
-
+	  UPROPERTY()
 	ATetris_Core *TetrisCore;
 
 	void UpdateScore(int AddScore);

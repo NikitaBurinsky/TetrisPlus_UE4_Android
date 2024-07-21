@@ -89,8 +89,11 @@ private:
 
 	//ATRIBUTES
 	//
+	UPROPERTY()
 	UMaterialInstanceDynamic* TV_ON_DynMat;
+	UPROPERTY()
 	UMaterialInstanceDynamic* TV_OFF_DynMat;
+
 	TV_Blocks_Combinations Combinations_Blocks_Data;
 
 

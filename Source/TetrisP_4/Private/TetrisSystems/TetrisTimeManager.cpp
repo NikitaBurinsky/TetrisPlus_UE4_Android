@@ -36,6 +36,7 @@ void UTetrisTimeManager::TTM_StartGame()
 	DelayIndex = 0;
 	SuperDownDelayIndex = 0;
 	TickCount = StartSpeedIndex;
+	TetrisCore->GetWorld()->GetTimerManager().ClearAllTimersForObject(this);
 	TetrisCore->GetWorld()->GetTimerManager().SetTimer(FigureFall_Base, this, &UTetrisTimeManager::FallingFigure_Tick,
 													   Delays[DelayIndex], true);
 	UE_LOG(Tetris_Time_Log, Display, TEXT("TetrisTime_Manager::StartGame() : Success"));
