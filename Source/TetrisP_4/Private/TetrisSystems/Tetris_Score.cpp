@@ -26,18 +26,20 @@ void UTetris_Score::AddScoreForRows(int RowsCount)
 {
 	TetrisCore->PublicUIData.DestroyedLines += RowsCount;
 	ScoreValues.DestroyedLines += RowsCount;
-	if (RowsCount == 1)
-		UpdateScore(ScoreFor1);
-	else if (RowsCount == 2)
-		UpdateScore(ScoreFor2);
-	else if (RowsCount == 3)
-		UpdateScore(ScoreFor3);
-	else if (RowsCount == 4)
-		UpdateScore(ScoreFor4);
-	else if (RowsCount == 0)
-		UpdateScore(ScoreFor0);
-	else
-		return;
+	
+	switch(RowsCount)
+	{
+	case 1:
+	UpdateScore(ScoreFor1);
+	case 2:
+	UpdateScore(ScoreFor2);
+	case 3:
+	UpdateScore(ScoreFor3);
+	case 4:
+	UpdateScore(ScoreFor4);
+	case 0:
+	UpdateScore(ScoreFor0);
+	}
 }
 
 FScoreValues &UTetris_Score::GetAllScoreValues()
